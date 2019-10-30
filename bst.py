@@ -7,4 +7,11 @@
 
 class BinarySearchTree:
 
-    pass
+    def __init__(self, key = None):
+        self.left = None
+        self.right = None
+        self.key = key
+
+    def insert(self, node):
+        if node.key <= self.key:
+            self.left = node
