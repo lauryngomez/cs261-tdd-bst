@@ -15,3 +15,5 @@ class BinarySearchTree:
     def insert(self, node):
         if node.key <= self.key:
             self.left = node
+        elif node.key >= self.key:
+            self.right = node
