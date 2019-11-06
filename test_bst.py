@@ -82,92 +82,92 @@ class TestBinarySearchTree(unittest.TestCase):
         bst.insert(child)
         self.assertEqual(child, bst.right)
 
-    # def test_search_single_none(self):
-    #     """
-    #     Searching a single-level tree for a key that doesn't exist returns None.
-    #     """
-    #     bst = BinarySearchTree(5)
-    #     self.assertIsNone(bst.search(-999))
+    def test_search_single_none(self):
+        """
+        Searching a single-level tree for a key that doesn't exist returns None.
+        """
+        bst = BinarySearchTree(5)
+        self.assertIsNone(bst.search(-999))
 
-    # def test_search_single_one(self):
-    #     """
-    #     Searching a single-level tree for a key that does exist returns that node / tree.
-    #     """
-    #     bst = BinarySearchTree(5)
-    #     self.assertEqual(bst, bst.search(5))
+    def test_search_single_one(self):
+        """
+        Searching a single-level tree for a key that does exist returns that node / tree.
+        """
+        bst = BinarySearchTree(5)
+        self.assertEqual(bst, bst.search(5))
 
-    # def test_delete_single_nonexistent(self):
-    #     """
-    #     Deleting a node with a key that does not exist returns the root node of
-    #     the single-level tree.
-    #     """
-    #     bst = BinarySearchTree(5)
-    #     self.assertEqual(bst, bst.delete(-999))
+    def test_delete_single_nonexistent(self):
+        """
+        Deleting a node with a key that does not exist returns the root node of
+        the single-level tree.
+        """
+        bst = BinarySearchTree(5)
+        self.assertEqual(bst, bst.delete(-999))
 
-    # def test_delete_single(self):
-    #     """
-    #     Deleting the node of a single-level tree returns None.
-    #     """
-    #     bst = BinarySearchTree(5)
-    #     self.assertIsNone(bst.delete(5))
+    def test_delete_single(self):
+        """
+        Deleting the node of a single-level tree returns None.
+        """
+        bst = BinarySearchTree(5)
+        self.assertIsNone(bst.delete(5))
 
-    # """
-    # Toddler, two-level trees. (Depth of one.)
-    # """
+    """
+    Toddler, two-level trees. (Depth of one.)
+    """
 
-    # def test_insert_two_smaller_left(self):
-    #     """
-    #     Inserting a node with a key that is less than the left child's key appends
-    #     the new node as the left child's left child.
-    #       5             5
-    #      / \    =>     / \
-    #     3   7         3   7
-    #                  /
-    #                 1
-    #     Hint: Nest your logic. Delegate with recursion.
-    #     """
-    #     bst = BinarySearchTree(5)
-    #     bst.left = BinarySearchTree(3)
-    #     bst.right = BinarySearchTree(7)
-    #     child = BinarySearchTree(1)
-    #     bst.insert(child)
-    #     self.assertEqual(child, bst.left.left)
+    def test_insert_two_smaller_left(self):
+        """
+        Inserting a node with a key that is less than the left child's key appends
+        the new node as the left child's left child.
+          5             5
+         / \    =>     / \
+        3   7         3   7
+                     /
+                    1
+        Hint: Nest your logic. Delegate with recursion.
+        """
+        bst = BinarySearchTree(5)
+        bst.left = BinarySearchTree(3)
+        bst.right = BinarySearchTree(7)
+        child = BinarySearchTree(1)
+        bst.insert(child)
+        self.assertEqual(child, bst.left.left)
 
-    # def test_insert_two_greater_left(self):
-    #     """
-    #     Inserting a node with a key that is greater than the left child's key
-    #     (and less than the parent/root) appends the new node as the left child's
-    #     right child.
-    #       5             5
-    #      / \    =>     / \
-    #     3   7         3   7
-    #                    \
-    #                     4
-    #     Hint: If this test immediately passes, you are on a happy path.
-    #     """
-    #     bst = BinarySearchTree(5)
-    #     bst.left = BinarySearchTree(3)
-    #     bst.right = BinarySearchTree(7)
-    #     child = BinarySearchTree(4)
-    #     bst.insert(child)
-    #     self.assertEqual(child, bst.left.right)
+    def test_insert_two_greater_left(self):
+        """
+        Inserting a node with a key that is greater than the left child's key
+        (and less than the parent/root) appends the new node as the left child's
+        right child.
+          5             5
+         / \    =>     / \
+        3   7         3   7
+                       \
+                        4
+        Hint: If this test immediately passes, you are on a happy path.
+        """
+        bst = BinarySearchTree(5)
+        bst.left = BinarySearchTree(3)
+        bst.right = BinarySearchTree(7)
+        child = BinarySearchTree(4)
+        bst.insert(child)
+        self.assertEqual(child, bst.left.right)
 
-    # def test_insert_two_greater_right(self):
-    #     """
-    #     Inserting a node with a key that is greater than the right child's key
-    #     appends the new node as the right child's right child.
-    #       5             5
-    #      / \    =>     / \
-    #     3   7         3   7
-    #                        \
-    #                         9
-    #     """
-    #     bst = BinarySearchTree(5)
-    #     bst.left = BinarySearchTree(3)
-    #     bst.right = BinarySearchTree(7)
-    #     child = BinarySearchTree(9)
-    #     bst.insert(child)
-    #     self.assertEqual(child, bst.right.right)
+    def test_insert_two_greater_right(self):
+        """
+        Inserting a node with a key that is greater than the right child's key
+        appends the new node as the right child's right child.
+          5             5
+         / \    =>     / \
+        3   7         3   7
+                           \
+                            9
+        """
+        bst = BinarySearchTree(5)
+        bst.left = BinarySearchTree(3)
+        bst.right = BinarySearchTree(7)
+        child = BinarySearchTree(9)
+        bst.insert(child)
+        self.assertEqual(child, bst.right.right)
 
     # def test_insert_two_smaller_right(self):
     #     """
